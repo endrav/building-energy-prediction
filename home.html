@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Energy Consumption of a Building</title>
+ </head>
+<body>
+        <h2>Welcome to Energy Prediction App</h2>
+        <h3>Enter building info</h3>
+        <form action = "{{ url_for('energyPrediction') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td><h4>Type of meter</h4> 
+                    <input type="number" name="meter" min="0" max="3" > </td> 
+                    
+                    <td><h4>Primary Use</h4> 
+                    <input type="number" name="primary_use" min="0" max="6" > </td> 
+
+                    <td><h4>Area in sq ft</h4> 
+                    <input type="number" name="square_feet" min="0" max="8000" > </td> 
+
+                    <td><h4>Built in year</h4> 
+                    <input type="number" name="year_built" min="1900" max="2022" > </td> 
+
+                    <td><h4>Air temperature</h4> 
+                    <input type="number" name="air_temperature" min="0" max="40" > </td> 
+
+                    <td><h4>Cloud Coverage</h4> 
+                    <input type="number" name="cloud_coverage" min="0" max="10" > </td> 
+
+                    <td><h4>Dew Temperature</h4> 
+                    <input type="number" name="dew_temperature" min="0" max="9" > </td> 
+
+                    <td><h4>Hour</h4> 
+                    <input type="number" name="hour" min="0" max="23" > </td> 
+
+                    <td><h4>Day</h4> 
+                    <input type="number" name="day" min="1" max="31" > </td> 
+
+                    <td><h4>Weekday</h4> 
+                    <input type="number" name="weekend" min="1" max="5" > </td> 
+
+                    <td><h4>Month</h4> 
+                    <input type="number" name="month" min="1" max="12" > </td> 
+
+                    <!--
+                
+                    <td><h4>Job</h4>
+                        <select name = "job">
+                            <option value="admin.">Administration</option>
+                            <option value="blue-collar">Blue-collar</option>
+                            <option value="entrepreneur">Entrpreneur</option>
+                            <option value="housemaid">Housemaid</option>
+                            <option value="management">Management</option>
+                            <option value="retired">Retired</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="services">Services</option>
+                            <option value="student">Student</option>
+                            <option value="technician">Technician</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </td>
+                    <td><h4>Marital</h4>
+                        <select name = "marital">
+                            <option value="married">Married</option>
+                            <option value="single">Single</option>
+                            <option value="divorced">Divorced / Widowed</option>                          
+                        </select>
+                    </td>
+                    <td><h4>Education</h4>
+                        <select name = "education"> 
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="tertiary">Tertiary</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Default</h4>
+                        <select name = "default">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td><h4>Balance</h4>
+                        <input type="number" name="balance" min="0" max="1000000"> </td>              
+                    <td><h4>Housing</h4>
+                        <select name = "housing">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td><h4>Loan</h4>
+                        <select name = "loan">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>  
+                -->          
+                </tr>
+            </table>
+            <!-- <input type="hidden" id="forminput" name="forminput"  >    -->        
+            <p><input type="submit" value="The predicted energy consumption of this building is "></p>
+             {% if (results) %} 
+             <h3> Energy meter prediction: {{ results }}  </h3>
+             
+             <p> for following features: </p>
+             <p> Type of Meter: {{meter}} Primary Use: {{primary_use}} Area in sq ft: {{square_feet}} Built in year: {{year_built}} </p>
+             <p> Air temperature: {{air_temperature}} Cloud Coverage: {{cloud_coverage}} Dew Temperature: {{dew_temperature}} Hour: {{hour}}
+                 Day: {{day}} Weekday: {{weekend}} Month: {{month}}
+             </p>
+            
+             {% endif %} 
+        </form>
+</body>
+</html>
